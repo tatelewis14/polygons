@@ -5,7 +5,7 @@ canvas.height = innerHeight;
 canvas.width = innerWidth;
 
 ctx.lineWidth = 5
-ctx.strokeStyle = 'red'
+ctx.strokeStyle = 'blue'
 
 let pressed = false
 
@@ -13,19 +13,20 @@ function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
   ctx.save();
   ctx.translate(x,y);
-  ctx.moveTo(0,0);
+  ctx.moveTo(0,0-radius);
   for(let i = 0; i<num; i++) {
   ctx.lineTo(0,0-radius);
   ctx.rotate(Math.PI / num);
   ctx.lineTo(0,0-(radius*inset));
   ctx.rotate(Math.PI / num);
   }
+  ctx.closePath()
   ctx.restore()
   ctx.stroke()
 }
 
 window.addEventListener('mousemove', e=>{
-  if(pressed) drawPolygons(e.x, e.y, 100, 0.8, 6)
+  if(pressed) drawPolygons(e.x, e.y, 100, 0.8, 6
 })
 window.addEventListener('mousedown', e=>{
 pressed = true
