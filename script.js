@@ -5,18 +5,21 @@ canvas.height = innerHeight;
 canvas.width = innerWidth;
 
 ctx.lineWidth = 5
-ctx.strokeStyle = 'white';
+ctx.strokeStyle = 'black';
 ctx.fillStyle = 'red';
 ctx.shadowOffsetX = 10;
 ctx.shadowOffsetY = 10;
 ctx.shadowBlur = 10;
-ctx.shadowColor='blue';
+ctx.shadowColor='black';
 
 
-let pressed = false
+let pressed = false;
+let hue = 0
 
 function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
+  ctx.fillStyle = `hsl(${hue}, 100%, 50%)`
+  hue += 0.01
   ctx.save();
   ctx.translate(x,y);
   ctx.moveTo(0,0-radius);
