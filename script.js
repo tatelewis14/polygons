@@ -5,7 +5,13 @@ canvas.height = innerHeight;
 canvas.width = innerWidth;
 
 ctx.lineWidth = 5
-ctx.strokeStyle = 'blue'
+ctx.strokeStyle = 'white';
+ctx.fillStyle = 'red';
+ctx.shadowOffsetX = 10;
+ctx.shadowOffsetY = 10;
+ctx.shadowBlur = 10;
+ctx.shadowColor='blue';
+
 
 let pressed = false
 
@@ -23,6 +29,7 @@ function drawPolygons(x,y, radius, inset, num) {
   ctx.closePath()
   ctx.restore()
   ctx.stroke()
+  ctx.fill()
 }
 
 window.addEventListener('mousemove', e=>{
