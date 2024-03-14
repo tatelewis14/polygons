@@ -19,7 +19,6 @@ let hue = 0
 function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
   ctx.fillStyle = `hsl(${hue}, 100%, 50%)`
-  hue += 0.01
   ctx.save();
   ctx.translate(x,y);
   ctx.moveTo(0,0-radius);
@@ -36,7 +35,10 @@ function drawPolygons(x,y, radius, inset, num) {
 }
 
 window.addEventListener('mousemove', e=>{
-  if(pressed) drawPolygons(e.x, e.y, 100, 0.8, 6)
+  if(pressed) {
+    hue++
+    drawPolygons(e.x, e.y, 100, 0.8, 6)
+  }
 })
 window.addEventListener('mousedown', e=>{
 pressed = true
