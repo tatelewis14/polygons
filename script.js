@@ -10,14 +10,16 @@ let pressed = false
 
 function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
-  ctx.save()
+  ctx.save();
   ctx.translate(x,y);
+  for(let i = 0; i<num; i++) {
   ctx.moveTo(0,0);
   ctx.lineTo(0,0-radius);
-  ctx.rotate(Math.PI / 3)
-  ctx.lineTo(0,0-radius);
+  ctx.rotate(Math.PI / num);
+  ctx.lineTo(0,0-(radius*inset));
+  ctx.rotate(Math.PI / num);
+  }
   ctx.restore()
-  ctx.closePath()
   ctx.stroke()
 }
 
