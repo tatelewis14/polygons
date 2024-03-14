@@ -6,6 +6,8 @@ canvas.width = innerWidth;
 
 ctx.lineWidth = 5
 
+let pressed = false
+
 function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
   ctx.save()
@@ -18,4 +20,14 @@ function drawPolygons(x,y, radius, inset, num) {
   ctx.closePath()
   ctx.stroke()
 }
-drawPolygons(canvas.width/2, canvas.height/2, 100, 0.5, 8)
+
+window.addEventListener('mousemove', e=>{
+  if(pressed) drawPolygons(e.x, e.y, 100, 0.5, 8)
+})
+window.addEventListener('mousedown', e=>{
+pressed = true
+})
+window.addEventListener('mouseup', e=>{
+pressed = false
+})
+
