@@ -13,9 +13,8 @@ function drawPolygons(x,y, radius, inset, num) {
     ctx.beginPath();
     ctx.moveTo(radius, radius);
     ctx.lineTo((radius*inset), (radius*inset);
-    ctx.rotate(360/num)
-    
-
+    ctx.rotate((Math.PI * 2)/num)
+    ctx.lineTo(radius, radius)
   }
       ctx.restore()
 }
