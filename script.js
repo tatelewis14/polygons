@@ -7,16 +7,15 @@ canvas.width = innerWidth;
 ctx.lineWidth = 5
 
 function drawPolygons(x,y, radius, inset, num) {
+  ctx.beginPath();
   ctx.save()
-  for(let i = 0; i<num; i++) {
-    ctx.translate(x,y)
-    ctx.beginPath();
-    ctx.moveTo(0, radius);
-    ctx.rotate((Math.PI)/num)
-    ctx.lineTo(0), 0-(radius*inset);
-    ctx.rotate((Math.PI)/num)
-    ctx.lineTo(0, 0-radius)
-  }
-    ctx.restore()
+  ctx.translate(x,y);
+  ctx.moveTo(0,0);
+  ctx.lineTo(0,0-radius);
+  ctx.rotate(Math.PI / 3)
+  ctx.lineTo(0,0-radius);
+  ctx.restore()
+  ctx.endPath()
+  ctx.stroke()
 }
-drawPolygons(canvas.height/2, canvas.width/2, 10, 0.5, 8)
+drawPolygons(canvas.height/2, canvas.width/2, 100, 0.5, 8)
