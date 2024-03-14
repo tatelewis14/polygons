@@ -46,4 +46,8 @@ pressed = true
 window.addEventListener('mouseup', e=>{
 pressed = false
 })
-
+window.addEventListener('keydown', e=>{
+if(e.keyCode === 32) {
+ctx.clearRect(0,0, canvas.width, canvas.height)
+}
+})
