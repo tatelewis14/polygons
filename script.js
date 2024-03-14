@@ -26,7 +26,7 @@ function drawPolygons(x,y, radius, inset, num) {
 }
 
 window.addEventListener('mousemove', e=>{
-  if(pressed) drawPolygons(e.x, e.y, 100, 0.8, 6
+  if(pressed) drawPolygons(e.x, e.y, 100, 0.8, 6)
 })
 window.addEventListener('mousedown', e=>{
 pressed = true
