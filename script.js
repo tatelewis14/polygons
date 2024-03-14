@@ -12,10 +12,11 @@ function drawPolygons(x,y, radius, inset, num) {
     ctx.translate(x,y)
     ctx.beginPath();
     ctx.moveTo(radius, radius);
+    ctx.rotate((Math.PI * 2)/num)
     ctx.lineTo((radius*inset), (radius*inset);
     ctx.rotate((Math.PI * 2)/num)
     ctx.lineTo(radius, radius)
   }
-      ctx.restore()
+    ctx.restore()
 }
 drawPolygons(canvas.height/2, canvas.width/2, 10, 0.5, 8)
