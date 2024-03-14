@@ -18,4 +18,4 @@ function drawPolygons(x,y, radius, inset, num) {
   ctx.endPath()
   ctx.stroke()
 }
-drawPolygons(canvas.height/2, canvas.width/2, 100, 0.5, 8)
+drawPolygons(canvas.width/2, canvas.height/2, 100, 0.5, 8)
