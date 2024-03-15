@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js" defer></script>
-    <title>Shapes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="script.js" defer></script>
+<title>Shapes</title>
 </head>
 <body>
-    <div id="values">
-        <span id="color">
-            <label for="color1">Shape 1 Color: </label>
-            <input type="color" name="color1" id="color1" value="#ff0000">
-        </span>
-        <br>
-        <span id="rotate">
-            <label for="rotate">Rotate?</label>
-            <input type="checkbox" name="rotate" id="rotate">
-        </span>
-        <br>
-        <span id="sides">
-            <label for="sides">Sides:</label>
-            <input type="number" name="sides" id="sides" value="3">
-        </span>
-        <br>
-        <span id="inset">
-            <label for="inset">Inset:</label>
-            <input type="number" name="inset" id="inset" value="0.5">
-        </span>
-        <br>
-        <span id="radius">
-            <label for="radius">Radius:</label>
-            <input type="number" name="radius" id="radius", value="70">
-        </span>
+  <div id="values">
+    <div class="shape-container">
+      <h2>Shape 1</h2>
+      <div class="input-group">
+        <label for="color1">Color:</label>
+        <input type="color" id="color1" class="color" value="#ff0000">
+      </div>
+      <div class="input-group">
+        <label for="rotate1">Rotate:</label>
+        <input type="checkbox" id="rotate1">
+      </div>
+      <div class="input-group">
+        <label for="sides1">Sides:</label>
+        <input type="number" id="sides1" value="3">
+      </div>
+      <div class="input-group">
+        <label for="inset1">Inset:</label>
+        <input type="number" id="inset1" value="0.5">
+      </div>
+      <div class="input-group">
+        <label for="radius1">Radius:</label>
+        <input type="number" id="radius1" value="70">
+      </div>
     </div>
-    <canvas id='gc'></canvas>
+  </div>
+  <canvas id="gc"></canvas>
 </body>
 </html>
