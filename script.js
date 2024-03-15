@@ -8,7 +8,7 @@ const insetValue = document.getElementById('inset');
 const radiusValue = document.getElementById('radius')
 
 canvas.height = innerHeight;
-canvas.width = innerWidth * 0.8;
+canvas.width = innerWidth * 0.75;
 
 ctx.lineWidth = 1
 ctx.strokeStyle = 'black';
