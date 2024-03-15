@@ -1,4 +1,28 @@
+* {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    user-select: none;
+}
 html, body {
     margin:0;
     padding:0;
+    overflow: hidden;
+
+}
+#gc {
+    background-color: white;
+    width: 75vw;
+    height: 100vh;
+}
+#values{
+    height: 100vh;
+    width:25vw;
+    background-color: grey;
+    position: absolute;
+    left:75vw;
+}
+#values span {
+    position: relative;
+}
+#color1 {
+    width: 25vw;
 }

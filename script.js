@@ -1,24 +1,30 @@
 const canvas = document.getElementById('gc');
 const ctx = canvas.getContext('2d');
 
-canvas.height = innerHeight;
-canvas.width = innerWidth;
+const colorChanger = document.getElementById('color1');
+const rotateValue = document.getElementById('rotate');
+const sideValue = document.getElementById('sides');
+const insetValue = document.getElementById('inset');
+const radiusValue = document.getElementById('radius')
 
-ctx.lineWidth = 5
+canvas.height = innerHeight;
+canvas.width = innerWidth * 0.8;
+
+ctx.lineWidth = 1
 ctx.strokeStyle = 'black';
-ctx.fillStyle = 'red';
+ctx.fillStyle = colorChanger.value
 ctx.shadowOffsetX = 10;
 ctx.shadowOffsetY = 10;
-ctx.shadowBlur = 10;
+ctx.shadowBlur = 5;
 ctx.shadowColor='black';
 
 
 let pressed = false;
-let hue = 0
+let angle = 0;
+let rotating = false;
 
 function drawPolygons(x,y, radius, inset, num) {
   ctx.beginPath();
-  ctx.fillStyle = `hsl(${hue}, 100%, 50%)`
   ctx.save();
   ctx.translate(x,y);
   ctx.moveTo(0,0-radius);
@@ -33,21 +39,67 @@ function drawPolygons(x,y, radius, inset, num) {
   ctx.stroke()
   ctx.fill()
 }
+let shapes = [{x:0, y:0, radius: 60, inset: 0.5, sides:3}]
 
-window.addEventListener('mousemove', e=>{
-  if(pressed) {
-    hue++
-    drawPolygons(e.x, e.y, 100, 0.8, 6)
+
+
+canvas.addEventListener('mousemove', e=>{
+  shapes.forEach(shape=>{
+    if(pressed) {
+    ctx.save()
+    ctx.translate(e.clientX, e.clientY)
+    if(rotating) {
+        ctx.rotate(angle)
+        angle += 0.05 
+    }
+    drawPolygons(shape.x,shape.y, shape.radius, shape.inset,shape.sides)
+    ctx.restore()
   }
 })
+})
 window.addEventListener('mousedown', e=>{
-pressed = true
+pressed = true;
+})
+canvas.addEventListener('mouseleave', e=>{
+    pressed = false
+})
+canvas.addEventListener('mouseenter', e=>{
+    if(pressed) {
+        shapes.forEach(shape=>{
+        drawPolygons(shape.x,shape.y, shape.radius, shape.inset,shape.sides)
+    })
+    }
 })
 window.addEventListener('mouseup', e=>{
-pressed = false
+pressed = false;
 })
 window.addEventListener('keydown', e=>{
 if(e.keyCode === 32) {
 ctx.clearRect(0,0, canvas.width, canvas.height)
 }
+})
+window.addEventListener('click', e=>{
+    shapes.forEach(shape=>{
+        ctx.save()
+        ctx.translate(e.clientX, e.clientY)
+        drawPolygons(shape.x,shape.y, shape.radius, shape.inset,shape.sides)
+        ctx.restore()
+    })  })
+  colorChanger.addEventListener('change', e=>{
+    ctx.fillStyle = colorChanger.value
+    console.log('color: ', ctx.fillStyle)
+  })
+  rotateValue.addEventListener('change', e=>{
+    rotating = !rotating
+    console.log('rotate: ', rotate)
+  })
+sideValue.addEventListener('change', e=>{
+    console.log(`sides: ${e.target.value}`)
+    shapes[0].sides = e.target.value
+})
+insetValue.addEventListener('change', e=>{
+    shapes[0].inset = e.target.value
+})
+radiusValue.addEventListener('change', e=>{
+    shapes[0].radius = e.target.value
 })
