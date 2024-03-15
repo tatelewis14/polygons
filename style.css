@@ -29,6 +29,3 @@ body {
 .shape-container {
   padding: 5px;
 }
-.shape-container:active {
-  background-color: darkgrey;
-}
