@@ -76,6 +76,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 window.addEventListener("click", (e) => {
+  if(e.clientX > canvas.width || e.clientX < 0 || e.clientY>canvas.height || e.clientY< 0) return
   shapes.forEach((shape) => {
     ctx.save();
     ctx.translate(e.clientX, e.clientY);
